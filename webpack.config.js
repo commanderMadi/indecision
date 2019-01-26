@@ -20,8 +20,10 @@ module.exports = {
             }
         ]
     },
-    devtool: 'cheap-module-eval-source-map',
+    devtool: env === 'production' ? 'source-map' : 'inline-source-map',
     devServer: {
-        contentBase: path.join(__dirname, 'public')
+        contentBase: path.join(__dirname, 'public'),
+        publicPath: '/dist/',
+        historyApiFallback: true
     }
 }
